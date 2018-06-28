@@ -20,7 +20,6 @@ import java.io.IOException;
 import com.github.dozermapper.core.Mapper;
 import com.github.dozermapper.spring.DozerBeanMapperFactoryBean;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -33,19 +32,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConditionalOnClass({DozerBeanMapperFactoryBean.class, Mapper.class})
 @ConditionalOnMissingBean(Mapper.class)
-@EnableConfigurationProperties(DozerConfigurationProperties.class)
+@EnableConfigurationProperties(DozerProperties.class)
 public class DozerAutoConfiguration {
 
-    private final DozerConfigurationProperties configurationProperties;
+    private final DozerProperties properties;
 
     /**
      * Constructor for creating auto configuration.
      *
-     * @param configurationProperties properties
+     * @param properties properties
      */
-    @Autowired
-    public DozerAutoConfiguration(DozerConfigurationProperties configurationProperties) {
-        this.configurationProperties = configurationProperties;
+    public DozerAutoConfiguration(DozerProperties properties) {
+        this.properties = properties;
     }
 
     /**
@@ -57,7 +55,7 @@ public class DozerAutoConfiguration {
     @Bean
     public DozerBeanMapperFactoryBean dozerMapper() throws IOException {
         DozerBeanMapperFactoryBean factoryBean = new DozerBeanMapperFactoryBean();
-        factoryBean.setMappingFiles(configurationProperties.getMappingFiles());
+        factoryBean.setMappingFiles(properties.getMappingFiles());
         return factoryBean;
     }
 }

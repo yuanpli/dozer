@@ -45,6 +45,7 @@
 
 == 3rd Party
 .. link:documentation/springintegration.adoc[Spring Integration]
+.. link:documentation/springBootIntegration.adoc[Spring Boot Integration]
 .. link:documentation/jaxb.adoc[JAXB]
 
 == Other
@@ -60,7 +61,7 @@
 == Schema
 .. link:https://dozermapper.github.io/schema/bean-mapping.xsd[Mapping XSD]
 .. link:https://dozermapper.github.io/schema/dozer-spring.xsd[Spring4 XSD]
-.. link:https://dozermapper.github.io/schema/dozer-user-guide.pdf[User's Guide PDF]
+.. link:https://dozermapper.github.io/user-guide.pdf[User's Guide PDF]
 
 == Eclipse Plugin
 .. link:documentation/eclipse-plugin/installation.adoc[Installation]
